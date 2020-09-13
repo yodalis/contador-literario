@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Literária</title>
+    <style>
+        * {
+            margin: 0px 0px 0px 0px;
+            padding: 0px 0px 0px 0px;
+        }
+
+        .corpo {
+            display: flex;
+            flex-direction: column;
+            margin: 80px 0px 0px 0px;
+            align-items: center;
+            justify-content: center;
+            background-color: #0e124e;
+
+        }
+
+        .titulo {
+            color: #D9E8F5;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: flex;
+            text-align: center;
+            margin: 15px 10px 12px 0px;
+            align-self: center;
+        }
+
+        .titulo-pglivro {
+            color: #FFFFFF;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 35px 0px 0px 20px;
+            align-self: flex-start;
+        }
+
+        .input-pglivro {
+            width: 210px;
+            height: 25px;
+            margin: -25px 0px -25px 20px;
+            align-self: flex-start;
+        }
+
+        .titulo-pglida {
+            color: #FFFFFF;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 25px 0px 0px 20px;
+            align-self: flex-start;
+
+        }
+
+        .input-pglida {
+            width: 210px;
+            height: 25px;
+            margin: -25px 0px 0px 20px;
+            align-self: flex-start;
+        }
+
+        .texto-embaixo {
+            color: #FFFFFF;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 16px;
+        }
+
+        .fundo {
+            background-color: #304269;
+            border-radius: 10px;
+            height: 450px;
+            width: 550px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 0px 10px 0px;
+        }
+
+        .botaoum {
+            height: 50px;
+            width: 100px;
+            background-color: #F26101;
+            color: white;
+            border-radius: 10px;
+        }
+
+
+        .final {
+            color: #F2E205;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body class="corpo">
+    <div class="fundo">
+        <h1 class="titulo">Calculadora Literária</h1>
+        <h3 style="color: #FFFFFF;">Vamos ver em quantas horas você vai terminar de ler seu livro?</h3>
+
+        <span class="titulo-pglivro"> Quantas páginas tem seu livro? </span>
+        <br><br>
+        <input id="pg_livro" class="input-pglivro" type="text" placeholder="Digite aqui o número de páginas">
+
+        <br><br>
+
+        <span class="titulo-pglida"> Quantas páginas você já leu? </span>
+
+        <br><br>
+
+        <input id="pg_lida" class="input-pglida" type="text" placeholder="Digite aqui quantas você leu">
+        <br><br>
+        <b class="texto-embaixo">
+            Obs:Em média uma pessoa demora 1 minuto para ler uma página </b>
+        <br><br>
+
+
+        <button onclick="botao()" class="botaoum"> Calcular </button>
+        <br>
+        <div class="final"> Você irá demorar <b id="total" style="color: salmon;"> x </b> horas para terminar seu livro
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function botao() {
+        var qtd_pagina_livro = Number(pg_livro.value);
+        var qtd_pagina_lida = Number(pg_lida.value);
+        var qtd_pagina_faltam = qtd_pagina_livro - qtd_pagina_lida;
+        var final_minutos = qtd_pagina_faltam;
+
+        var final_horas = final_minutos / 60;
+
+        total.innerHTML = final_horas.toFixed(2)
+    }
+</script>
